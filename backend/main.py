@@ -36,17 +36,28 @@ feature_cols = None
 def load_model():
     global model, scaler, label_encoders, target_encoder, feature_cols
     try:
-        model = joblib.load('models/model.pkl')
-        scaler = joblib.load('models/scaler.pkl')
-        label_encoders = joblib.load('models/label_encoders.pkl')
-        target_encoder = joblib.load('models/target_encoder.pkl')
-        with open('models/feature_cols.json', 'r') as f:
+        # Try multiple paths for flexibility
+        model_path = None
+        for path in ['models/model.pkl', '/backend/models/model.pkl', './models/model.pkl']:
+            if os.path.exists(path):
+                model_path = path
+                break
+        
+        if model_path is None:
+            print("Warning: Model files not found during initialization. They will be loaded on first request.")
+            return
+        
+        model = joblib.load(model_path)
+        scaler = joblib.load(model_path.replace('model.pkl', 'scaler.pkl'))
+        label_encoders = joblib.load(model_path.replace('model.pkl', 'label_encoders.pkl'))
+        target_encoder = joblib.load(model_path.replace('model.pkl', 'target_encoder.pkl'))
+        with open(model_path.replace('model.pkl', 'feature_cols.json'), 'r') as f:
             feature_cols = json.load(f)
         print("Model loaded successfully")
     except Exception as e:
         print(f"Error loading model: {e}")
-        raise
 
+# Load model on startup (non-blocking)
 load_model()
 
 # Request models
