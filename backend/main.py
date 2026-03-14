@@ -14,7 +14,13 @@ app = FastAPI(title="Customer Churn Prediction API")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "https://localhost:3000",
+        "https://localhost:8000",
+        "*"  # Allow all origins (can be restricted in production)
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

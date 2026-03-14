@@ -1,0 +1,38 @@
+{
+  "name": "smart-campus-complaint-system",
+  "version": "1.0.0",
+  "description": "Smart Campus Complaint Management System - MERN Stack with React Examples",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.0",
+    "react-router-dom": "^6.14.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.0"
+  },
+  "keywords": [
+    "MERN",
+    "React",
+    "Hooks",
+    "Smart Campus",
+    "Complaint Management",
+    "useState",
+    "useEffect",
+    "useContext",
+    "useReducer",
+    "useRef"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
