@@ -3,6 +3,20 @@
   "regions": ["iad1"],
   "env": {
     "PYTHONUNBUFFERED": "1"
-  }
+  },
+  "buildCommand": "pip install -r backend/requirements.txt",
+  "outputDirectory": "backend",
+  "functions": {
+    "backend/main.py": {
+      "memory": 3008,
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/main.py"
+    }
+  ]
 }
 
