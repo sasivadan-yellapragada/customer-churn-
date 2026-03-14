@@ -1,6 +1,7 @@
 {
   "version": 2,
   "regions": ["iad1"],
+  "packageManager": "pip@latest",
   "env": {
     "PYTHONUNBUFFERED": "1"
   },
